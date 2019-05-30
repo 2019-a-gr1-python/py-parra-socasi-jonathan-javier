@@ -9,7 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-path = '/home/dev-05/Desktop/py-parra-socasi-jonathan-javier/Informe/FIFA.csv'
+path = 'FIFA.csv'
 lista_fifa = pd.read_csv(path)
 
 
@@ -17,17 +17,33 @@ lista_fifa = pd.read_csv(path)
 Seleccionar los 10 deportistas mejores pagados según el juego de FIFA19
 """
 
-columnas_usar = ['Name', 'Age', 'Nationality', 'Potential', 'Club', 'Value', 'Position', 'Height', 'Weight']
+columnas_usar = ['ID','Name', 'Age', 'Nationality', 'Potential', 'Club', 'Value', 'Position', 'Height', 'Weight']
 lista_campos_seleccionados = pd.read_csv(path, usecols=columnas_usar)
 
-jugadores  =lista_campos_seleccionados.head(1000)
+jugadores = lista_campos_seleccionados.head(50)
 
-nacionalidadJugadores = jugadores['Nationality'].unique()
-cantidadPokemonsXTipo = np.zeros(nacionalidadJugadores.size);
+nacionalidades = jugadores['Nationality'].unique()
+cantidad_nacionalidades = np.zeros(nacionalidades.size)
 
-print(nacionalidadJugadores, cantidadPokemonsXTipo)
+for idjugador, pais in enumerate(nacionalidades):
+    cantidad_nacionalidades[idjugador] = jugadores[jugadores['Nationality'] == pais].Name.count()
+
+print(cantidad_nacionalidades, nacionalidades)
+
+plt.xlabel('En x')
+plt.xlabel('En y')
+plt.plot(cantidad_nacionalidades, nacionalidades)
+
 
 """
+tiposPokemon = pokemons['Type 1'].unique()
+cantidadPokemonsXTipo = np.zeros(tiposPokemon.size);
+for idx, tipo in enumerate(tiposPokemon):
+    cantidadPokemonsXTipo[idx] = pokemons[pokemons['Type 1'] == tipo].Name.count()
+
+
+
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
