@@ -11,7 +11,6 @@ def listar():
     except Exception as error:
         print(f'Error: {error}')
 
-
 def eliminar():
 
     print('ELIMINAR')
@@ -28,7 +27,6 @@ def eliminar():
     archivo_a_crear.writelines(arreglo_nuevo)
     archivo_a_crear.close()    
 
-
 def crear():
             
     marca= input('Ingrese marca del dispositivo movil:  ')
@@ -44,12 +42,10 @@ def crear():
     return archivo_a_escribir
 
 def switch_accion(): 
-    
+
     accionAbuscar=input('Ingrese numero de la accion a realizar \n 1.- Crear \n 2.- Listar \n 3.- Eliminar \n')
     return { 
         1:crear(),
-        2:listar(),
-        3:eliminar(),
         }[accionAbuscar]
             
 switch_accion()
