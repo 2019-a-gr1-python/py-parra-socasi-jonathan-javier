@@ -1,0 +1,7 @@
+mazda    bt-50     blanco
+hyundai     tucson     azul
+kia   sportage GT   negro
+mazda   3   negro
+kia   rio   verde
+chevrolet   sail   gris
+mazda   cx5   gris
